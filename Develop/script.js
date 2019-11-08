@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", function(event) {
   var currentTime = moment().format("dddd, MMMM Do", true);
   var currentDay = document.getElementById("currentDay");
@@ -31,11 +29,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
     });
   });
 
- 
   var saveEventBtn = document.querySelector(".saveBtn");
   var eventDiv = document.querySelector(".row");
   var eventContent = document.querySelector(".input");
-
 
   renderLastRegistered();
 
@@ -46,10 +42,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
   function renderLastRegistered() {
     var userInput = localStorage.getItem(".input");
 
-
     if (userInput === null) {
       return;
-    }
+    } 
 
     eventContent.textContent = email;
   }
@@ -68,5 +63,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
       renderLastRegistered();
     }
   });
-
 });
