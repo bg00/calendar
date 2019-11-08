@@ -32,41 +32,39 @@ document.addEventListener("DOMContentLoaded", function(event) {
   });
 
  
-  var signUpButton = document.querySelector(".saveBtn");
-  var msgDiv = document.querySelector(".row");
-  var userEmailSpan = document.querySelector(".input");
+  var saveEventBtn = document.querySelector(".saveBtn");
+  var eventDiv = document.querySelector(".row");
+  var eventContent = document.querySelector(".input");
 
 
   renderLastRegistered();
 
   function displayMessage(type, message) {
-    msgDiv.textContent = message;
-    msgDiv.setAttribute("class", type);
+    eventDiv.textContent = message;
   }
 
   function renderLastRegistered() {
-    event.preventDefault();
-    var email = localStorage.getItem(".input");
+    var userInput = localStorage.getItem(".input");
 
 
-    if (email === null) {
+    if (userInput === null) {
       return;
     }
 
-    userEmailSpan.textContent = email;
+    eventContent.textContent = email;
   }
 
-  signUpButton.addEventListener("click", function(event) {
+  saveEventBtn.addEventListener("click", function(event) {
     event.preventDefault();
 
-    var email = document.querySelector(".input").value;
+    var userInput = document.querySelector(".input").value;
 
-    if (email === " ") {
-      alert("Email cannot be blank");
+    if (userInput === " ") {
+      alert("Please add an event");
     } else {
-      alert("Registered successfully");
+      alert("Event has been saved to your calendar");
 
-      localStorage.setItem("email", email);
+      localStorage.setItem("Event", userInput);
       renderLastRegistered();
     }
   });
